@@ -1,0 +1,38 @@
+.content-container
+    .content-header
+        h2.h2 Мої броні
+    .content-main
+        .booking-container
+            .booking-container-header
+                .booking-container-header-top
+                    .booking-container-header-col.booking-container-header-col__left
+                        .booking-status
+                            .status Бронь створено
+                            .date.font-light 04.04.2023 в 09:45
+                        .booking-orders
+                            ul.orders-list
+                                li.orders-item №122010210,
+                                li.orders-item №122010212,
+                                li.orders-item №122010213
+                    .booking-container-header-col.booking-container-header-col__center
+                        ul.venue-info-list
+                            li.venue-info-list
+                                span.font-light Аптека TAS
+                                include ../img/icons/info.svg
+                            li.venue-info-list
+                                span.font-light Відчинено до 21:00
+                            li.venue-info-list
+                                span.font-light вул. Саперно-Слобідська 10, Київ
+                    .booking-container-header-col.booking-container-header-col__right
+                        .booking-info
+                            .booking-info-product
+                                .product-quantity.font-light 2 товара
+                                .product-price.font-light 89,70 грн
+                            .btn-open-main-wrap
+                                button#open-container-main
+                                    include ../img/icons/arr-top.svg
+                .booking-container-header-bottom
+                    .booking-numbers
+                        include ../img/icons/info.svg
+                        span.font-light Назвіть додаткові номери бронювань для отримання рецептурних товарів
+            .booking-container-main

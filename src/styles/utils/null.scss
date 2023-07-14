@@ -1,8 +1,9 @@
+@import './mixin.scss';
+@import './vars.scss';
 * {
     padding: 0;
     margin: 0;
     border: 0;
-    transition: 0.5s;
 }
 
 ::-moz-selection {
@@ -42,6 +43,7 @@ html {
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 
 button,
@@ -87,4 +89,38 @@ h6 {
     font-weight: 400;
     padding: 0;
     margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.font-light {
+    @include font(14px, 400, 24px, $COLOR__BLACK);
+}
+
+.header {
+    width: 100%;
+    min-height: 80px;
+    background-color: $COLOR__GREEN;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+}
+
+.sidebar {
+    width: 305px;
+    height: 100%;
+    background-color: $COLOR__GREY;
+}
+
+.footer {
+    height: 600px;
+    flex-shrink: 0;
+    background-color: $COLOR__GREY;
+    border-top: 1px solid #CCC;
 }

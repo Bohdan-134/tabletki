@@ -1,0 +1,126 @@
+@import '../utils/main.utils.scss';
+.content-container {
+    padding: 32px 79px 32px 20px;
+    flex: 1;
+    min-height: 661px;
+}
+
+.content-header {
+    padding-bottom: 24px;
+    border-bottom: 1px solid $COLOR__GREY;
+    .h2 {
+        @include font(20px, 600, 24px, $COLOR__BLACK);
+    }
+}
+
+.content-main {
+    padding-top: 24px;
+}
+
+.booking-container-header {
+    padding: 16px;
+    background-color: #EEF7EB;
+    border: 1px solid #EEF7EB;
+    border-radius: 8px;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.20);
+}
+
+.booking-container-header-top {
+    margin-bottom: 10px;
+    @include flex(row, null, flex-start);
+}
+
+.booking-container-header-col__left {
+    width: 100%;
+    max-width: 290px;
+    .booking-status {
+        margin-bottom: 10px;
+        @include flex(row, null, center);
+        .status {
+            padding: 0 8px;
+            margin-right: 8px;
+            border-radius: 4px;
+            border: 1px solid $COLOR__GREEN;
+            background: $COLOR__WHITE;
+            text-align: center;
+            @include font(14px, 400, 24px, $COLOR__GREEN);
+        }
+    }
+    .booking-orders {
+        .orders-list {
+            flex-wrap: wrap;
+            @include flex(row, null, null);
+            .orders-item {
+                margin-right: 5px;
+                @include font(16px, 600, 24px, $COLOR__BLACK);
+                &:last-child {
+                    margin-right: 0px;
+                }
+            }
+        }
+    }
+}
+
+.booking-container-header-col__center {
+    margin: 0 10px;
+    flex: 1;
+    .venue-info-list {
+        .venue-info-list {
+            @include flex(row, null, center);
+            svg {
+                margin-left: 4px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.booking-container-header-col__right {
+    max-width: 130px;
+    .booking-info {
+        @include flex(row, null, center);
+        .btn-open-main-wrap {
+            margin-left: 16px;
+            #open-container-main {
+                padding: 8px;
+                background-color: #D9EFD4;
+                border: 1px solid $COLOR__GREEN;
+                border-radius: 8px;
+                transition: .3s;
+                svg {
+                    path {
+                        transition: .3s;
+                    }
+                }
+                &:hover {
+                    background-color: $COLOR__GREEN;
+                    svg {
+                        path {
+                            stroke: $COLOR__WHITE;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.booking-container-header-bottom {
+    .booking-numbers {
+        padding: 12px 16px;
+        width: 100%;
+        max-width: 555px;
+        background-color: $COLOR__YELLOW;
+        border-radius: 8px;
+        @include flex(row, null, center);
+        svg {
+            margin-right: 4px;
+            circle {
+                stroke: #E06213;
+            }
+            path {
+                stroke: #E06213;
+            }
+        }
+    }
+}
