@@ -14,7 +14,11 @@
 }
 
 .content-main {
-    padding-top: 24px;
+    border-radius: 8px;
+    margin-top: 24px;
+    border: 1px solid #D9EFD4;
+    background: #FFF;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.20);
 }
 
 .booking-container-header {
@@ -86,6 +90,7 @@
                 background-color: #D9EFD4;
                 border: 1px solid $COLOR__GREEN;
                 border-radius: 8px;
+                cursor: pointer;
                 transition: .3s;
                 svg {
                     path {
@@ -120,6 +125,116 @@
             }
             path {
                 stroke: #E06213;
+            }
+        }
+    }
+}
+
+.booking-container-main {
+    @include flex(row, null, flex-start);
+}
+
+.booking-container-main-left {
+    flex: 1;
+    border-right: 1px solid #D9EFD4;
+}
+
+.product-list {
+    .product-item {
+        .product-item-header {
+            padding: 8px 16px;
+            background-color: #D9EFD4;
+            .product-item-title {
+                @include font(16px, 600, 24px, $COLOR__BLACK);
+            }
+        }
+        .product-item-main {
+            padding: 16px;
+            border-bottom: 1px solid #D9EFD4;
+            @include flex(row, space-between, flex-end);
+            .product-info {
+                @include flex(row, null, center);
+                .product-img-wrapper {
+                    margin-right: 9px;
+                }
+                .product-text {
+                    .product-title {
+                        @include font(14px, 600, 24px, $COLOR__BLACK);
+                    }
+                    .product-subtitle {
+                        @include font(14px, 400, 24px, #888888);
+                    }
+                    .product-recipe {
+                        width: 100px;
+                        height: 26px;
+                        margin: 8px 0;
+                        border-radius: 100px;
+                        background-color: #F3F3F3;
+                        @include flex(row, center, center);
+                        svg {
+                            margin-right: 4px;
+                        }
+                        span {
+                            @include font(10px, 700, 10px, #757575);
+                        }
+                    }
+                    .product-quantity {
+                        @include font(14px, 400, 24px, $COLOR__BLACK);
+                    }
+                }
+            }
+            .product-price {
+                @include font(16px, 600, 24px, $COLOR__BLACK);
+                span {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+.total-price-wrapper {
+    padding: 16px;
+    @include font(18px, 700, 24px, $COLOR__BLACK);
+    @include flex(row, space-between, center);
+    .total-price {
+        span {
+            font-size: 14px;
+            font-weight: 600;
+        }
+    }
+}
+
+.booking-container-main-right {
+    width: 100%;
+    max-width: 375px;
+}
+
+.accordion-booking {
+    .accordion-item {
+        .accordion-header {
+            position: relative;
+            cursor: pointer;
+            background-color: lightgray;
+            padding: 10px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            padding-left: 40px;
+        }
+        .accordion-content {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease;
+            p {
+                padding: 10px 20px;
+            }
+        }
+        &.active {
+            .accordion-header {
+                background-color: gray;
+            }
+            .accordion-content {
+                max-height: 500px;
             }
         }
     }
