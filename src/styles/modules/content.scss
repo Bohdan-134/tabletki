@@ -93,6 +93,7 @@
                 cursor: pointer;
                 transition: .3s;
                 svg {
+                    transition: .3s;
                     path {
                         transition: .3s;
                     }
@@ -104,6 +105,11 @@
                             stroke: $COLOR__WHITE;
                         }
                     }
+                }
+            }
+            #open-container-main.active {
+                svg {
+                    transform: rotate(180deg);
                 }
             }
         }
@@ -131,6 +137,10 @@
 }
 
 .booking-container-main {
+    display: none;
+}
+
+.booking-container-main.active {
     @include flex(row, null, flex-start);
 }
 
@@ -206,36 +216,131 @@
 }
 
 .booking-container-main-right {
+    padding: 24px 20px;
     width: 100%;
     max-width: 375px;
 }
 
 .accordion-booking {
+    position: relative;
     .accordion-item {
         .accordion-header {
             position: relative;
+            z-index: 2;
             cursor: pointer;
-            background-color: lightgray;
-            padding: 10px;
-            font-weight: bold;
             transition: background-color 0.3s ease;
-            padding-left: 40px;
+            @include flex(row, null, center);
+            .status {
+                margin: 0 20px 0 4px;
+                position: relative;
+                width: 11px;
+                height: 11px;
+                background-color: $COLOR__WHITE;
+                border: 1px solid $COLOR__GREEN;
+                border-radius: 50%;
+                transition: .3s;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 3px;
+                    height: 3px;
+                    background-color: $COLOR__GREEN;
+                    border-radius: 50%;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scale(0);
+                    transition: .3s;
+                }
+            }
+            .h4 {
+                transition: .3s;
+                @include font(16px, 600, 24px, #888888);
+            }
+        }
+        .accordion-header.active {
+            .h4 {
+                color: $COLOR__BLACK;
+            }
+            .status {
+                width: 12px;
+                height: 12px;
+                transform: scale(1.5);
+                &::before {
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
         }
         .accordion-content {
+            padding-left: 30px;
             overflow: hidden;
             max-height: 0;
             transition: max-height 0.3s ease;
-            p {
-                padding: 10px 20px;
+            .accordion-content-wrapp {
+                padding: 8px 16px;
+                background-color: $COLOR__YELLOW;
+                width: fit-content;
+                border-radius: 8px;
+                margin: 16px 0 24px;
+                p {
+                    max-width: 160px;
+                    @include font(14px, 400, 24px, $COLOR__BLACK);
+                }
             }
         }
-        &.active {
-            .accordion-header {
-                background-color: gray;
-            }
-            .accordion-content {
-                max-height: 500px;
-            }
+    }
+    &::before {
+        content: '';
+        padding-bottom: 6px;
+        position: absolute;
+        left: 9px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 80%;
+        border-left: 1px dotted $COLOR__GREEN;
+    }
+}
+
+#cancel {
+    margin-top: 24px;
+    background-color: transparent;
+    text-transform: uppercase;
+    @include font(16px, 400, 24px, #FF6262);
+    @include flex(row, center, center);
+    svg {
+        margin-right: 20px;
+        transition: .3s;
+    }
+    &:hover {
+        svg {
+            transform: rotate(180deg);
         }
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .content-container {
+        padding: 32px 20px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .booking-container-header-top {
+        @include flex(row, space-between, flex-start);
+    }
+    .booking-container-header-col__center {
+        display: none;
+    }
+    .booking-info-product {
+        display: none;
+    }
+    .booking-container-header-col__right .booking-info .btn-open-main-wrap {
+        margin-left: 0;
+    }
+    .booking-container-main.active {
+        @include flex(column-reverse, flex-start, flex-start);
+    }
+    .booking-container-main-left,
+    .booking-container-main-right {
+        width: 100%;
     }
 }

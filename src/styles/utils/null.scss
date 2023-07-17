@@ -7,11 +7,11 @@
 }
 
 ::-moz-selection {
-    background-color: rgba(112, 248, 202, 0.4784313725);
+    background-color: rgba(217, 239, 212, 0.4784313725);
 }
 
 ::selection {
-    background-color: rgba(112, 248, 202, 0.4784313725);
+    background-color: rgba(217, 239, 212, 0.4784313725);
 }
 
 *,
@@ -113,7 +113,8 @@ body {
 }
 
 .sidebar {
-    width: 305px;
+    width: 100%;
+    max-width: 305px;
     height: 100%;
     background-color: $COLOR__GREY;
 }
@@ -123,4 +124,10 @@ body {
     flex-shrink: 0;
     background-color: $COLOR__GREY;
     border-top: 1px solid #CCC;
+}
+
+@media screen and (max-width: 1050px) {
+    .sidebar {
+        max-width: 0px;
+    }
 }
